@@ -1,0 +1,5 @@
+{
+  "id": "azure-pipelines-web-report-viewer-dev",
+  "public": false,
+  "baseUri": "https://localhost:9000"
+}

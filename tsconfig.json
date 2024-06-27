@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "lib": ["ES2019", "DOM"],
+    "target": "ES6",
+    "jsx": "react",
+    "types": [
+        "react",
+        "node"
+    ],
+    "skipLibCheck": true,
+    "sourceMap": true
+  }
+}

@@ -1,0 +1,4 @@
+dist
+task/dist
+webpack.config.js
+out

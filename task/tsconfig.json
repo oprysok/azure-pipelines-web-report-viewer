@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "Node",
+    "target": "ES2015",
+    "module": "CommonJS",
+    "outDir": "dist"
+  },
+  "files": ["src/index.ts"]
+}

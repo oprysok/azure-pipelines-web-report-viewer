@@ -1,0 +1,97 @@
+{
+  "manifestVersion": 1,
+  "id": "azure-pipelines-web-report-viewer",
+  "publisher": "oprysok",
+  "version": "0.1.0",
+  "author": "Mykhailo Oprysok",
+  "name": "Web report viewer",
+  "description": "Display web reports on a separate tab",
+  "public": false,
+  "categories": ["Azure Pipelines"],
+  "icons": {
+    "default": "icon.png"
+  },
+  "tags": ["Build", "Release", "DevOps"],
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "uri": "https://github.com/oprysok/azure-pipelines-web-report-viewer"
+  },
+  "content": {
+    "details": {
+      "path": "README.md"
+    }
+  },
+  "scopes": ["vso.build_execute", "vso.release_execute"],
+  "demands": ["api-version/3.0"],
+  "screenshots": [
+    {
+      "path": "images/screenshot.png"
+    }
+  ],
+  "contributions": [
+    {
+      "id": "build-web-report-tab",
+      "type": "ms.vss-build-web.build-results-tab",
+      "description": "Show web reports in Azure Pipelines build results",
+      "targets": ["ms.vss-build-web.build-results-view"],
+      "properties": {
+        "name": "Web Report",
+        "displayName": "Web Report",
+        "uri": "dist/TabContent.html",
+        "registeredObjectId": "registerBuild",
+        "supportsTasks": ["c8dda2c7-518c-453d-a296-89daf80c1f86"],
+        "dynamic": true
+      },
+      "includes": ["ms.vss-releaseManagement-web.release-service-data-external"]
+    },
+    {
+      "id": "release-web-report-tab",
+      "type": "ms.vss-web.tab",
+      "description": "Show web reports in Azure Pipelines release results",
+      "targets": [
+        "ms.vss-releaseManagement-web.release-environment-editor-tab"
+      ],
+      "properties": {
+        "name": "Web Report",
+        "displayName": "Web Report",
+        "uri": "dist/TabContent.html",
+        "registeredObjectId": "registeredEnvironmentObject",
+        "dynamic": true
+      },
+      "includes": ["ms.vss-releaseManagement-web.release-service-data-external"]
+    },
+    {
+      "id": "setup-web-report-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "task"
+      }
+    }
+  ],
+  "files": [
+    {
+      "path": "./task",
+      "packagePath": "task",
+      "addressable": false
+    },
+    {
+      "path": "./dist",
+      "packagePath": "dist",
+      "addressable": true
+    },
+    {
+      "path": "images/example-build.png",
+      "addressable": true
+    },
+    {
+      "path": "images/example-release.png",
+      "addressable": true
+    }
+  ]
+}

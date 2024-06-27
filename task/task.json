@@ -1,0 +1,41 @@
+{
+  "id": "c8dda2c7-518c-453d-a296-89daf80c1f86",
+  "name": "SetupWebReportTask",
+  "friendlyName": "Setup web report",
+  "description": "Configure a web report for the build or release process",
+  "author": "Mykhailo Oprysok",
+  "helpMarkDown": "This task sets up a web report by specifying a URL, which will be displayed on a dedicated tab in the Build or Release pages. Ensure the URL points to a valid web resource.",
+  "category": "Utility",
+  "visibility": ["Build"],
+  "demands": [],
+  "version": {
+    "Major": "1",
+    "Minor": "0",
+    "Patch": "0"
+  },
+  "minimumAgentVersion": "2.144.0",
+  "instanceNameFormat": "Setup web report",
+  "inputs": [
+    {
+      "name": "tabName",
+      "type": "string",
+      "label": "Name",
+      "defaultValue": "Default",
+      "required": true,
+      "helpMarkDown": "The title of the tab where the web report will be displayed"
+    },
+    {
+      "name": "url",
+      "type": "string",
+      "label": "URL",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The URL of the web page to be rendered in the tab"
+    }
+  ],
+  "execution": {
+    "Node": {
+      "target": "dist/index.js"
+    }
+  }
+}
